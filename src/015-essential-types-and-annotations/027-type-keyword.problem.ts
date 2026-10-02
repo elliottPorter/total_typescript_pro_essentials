@@ -1,18 +1,20 @@
-import { Expect, Equal } from "@total-typescript/helpers";
-import { expect, it } from "vitest";
+import { Expect, Equal } from '@total-typescript/helpers';
+import { expect, it } from 'vitest';
 
-const getRectangleArea = (rectangle: { width: number; height: number }) => {
-  return rectangle.width * rectangle.height;
-};
-
-const getRectanglePerimeter = (rectangle: {
+interface Dimensions {
   width: number;
   height: number;
-}) => {
-  return 2 * (rectangle.width + rectangle.height);
+}
+
+const getRectangleArea = (dims: Dimensions) => {
+  return dims.width * dims.height;
 };
 
-it("should return the area of a rectangle", () => {
+const getRectanglePerimeter = (dims: Dimensions) => {
+  return 2 * (dims.width + dims.height);
+};
+
+it('should return the area of a rectangle', () => {
   const result = getRectangleArea({
     width: 10,
     height: 20,
@@ -23,7 +25,7 @@ it("should return the area of a rectangle", () => {
   expect(result).toEqual(200);
 });
 
-it("should return the perimeter of a rectangle", () => {
+it('should return the perimeter of a rectangle', () => {
   const result = getRectanglePerimeter({
     width: 10,
     height: 20,
