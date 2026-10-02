@@ -1,6 +1,8 @@
-import { Expect, Equal } from "@total-typescript/helpers";
+import { Expect, Equal } from '@total-typescript/helpers';
 
-const goToLocation = (coordinates: Array<number>) => {
+const goToLocation = (
+  coordinates: [lat: number, long: number, ele: number?]
+) => {
   const latitude = coordinates[0];
   const longitude = coordinates[1];
   const elevation = coordinates[2];
@@ -17,6 +19,6 @@ const goToLocation = (coordinates: Array<number>) => {
 goToLocation([10, 20]);
 
 // @ts-expect-error string is not assignable to number
-goToLocation([10, "20"]);
+goToLocation([10, '20']);
 
 goToLocation([10, 20, 30]);

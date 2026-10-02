@@ -1,12 +1,14 @@
-const addClickEventListener = (listener) => {
-  document.addEventListener("click", listener);
+type AddClickEventListener_function = () => void;
+
+const addClickEventListener = (listener: AddClickEventListener_function) => {
+  document.addEventListener('click', listener);
 };
 
 addClickEventListener(() => {
-  console.log("Clicked!");
+  console.log('Clicked!');
 });
 
 addClickEventListener(
   // @ts-expect-error
-  "abc",
+  'abc'
 );
